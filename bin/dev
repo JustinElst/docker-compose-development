@@ -199,6 +199,7 @@ dc() {
 
     yml_local() {
       if [ -r ${DEV_USERDIR}/docker-compose-dev.yml ]; then
+          export DEV_USERDIR="${DEV_USERDIR}";
           DEV_YML=${DEV_YML}' --file '${DEV_USERDIR}/docker-compose-dev.yml;
       fi
     }
