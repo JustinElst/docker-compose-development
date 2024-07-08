@@ -1,39 +1,4 @@
 services:
-  php70:
-    environment:
-      SSH_AUTH_SOCK: "/ssh-socket"
-    volumes:
-      - ${SSH_AUTH_SOCK}:/ssh-socket:ro
-  php56:
-    environment:
-      SSH_AUTH_SOCK: "/ssh-socket"
-    volumes:
-      - ${SSH_AUTH_SOCK}:/ssh-socket:ro
-  php71:
-    environment:
-      SSH_AUTH_SOCK: "/ssh-socket"
-    volumes:
-      - ${SSH_AUTH_SOCK}:/ssh-socket:ro
-  php72:
-    environment:
-      SSH_AUTH_SOCK: "/ssh-socket"
-    volumes:
-      - ${SSH_AUTH_SOCK}:/ssh-socket:ro
-  php73:
-    environment:
-      SSH_AUTH_SOCK: "/ssh-socket"
-    volumes:
-      - ${SSH_AUTH_SOCK}:/ssh-socket:ro
-  php74:
-    environment:
-      SSH_AUTH_SOCK: "/ssh-socket"
-    volumes:
-      - ${SSH_AUTH_SOCK}:/ssh-socket:ro
-  php80:
-    environment:
-      SSH_AUTH_SOCK: "/ssh-socket"
-    volumes:
-      - ${SSH_AUTH_SOCK}:/ssh-socket:ro
   php81:
     environment:
       SSH_AUTH_SOCK: "/ssh-socket"
@@ -44,4 +9,8 @@ services:
       SSH_AUTH_SOCK: "/ssh-socket"
     volumes:
       - ${SSH_AUTH_SOCK}:/ssh-socket:ro
-
+  php83:
+    environment:
+      SSH_AUTH_SOCK: "/ssh-socket"
+    volumes:
+      - ${SSH_AUTH_SOCK}:/ssh-socket:ro

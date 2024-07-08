@@ -19,77 +19,6 @@ services:
   mailcatch:
     image: mailhog/mailhog
 
-  php56:
-    build:
-      context: build/dist/php
-      args:
-        - FROM_TAG=php5-fpm
-    volumes:
-      - dockerdev-workspace-volume:/data
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-  php70:
-    build:
-      context: build/dist/php
-      args:
-        - FROM_TAG=php7-fpm
-    volumes:
-      - dockerdev-workspace-volume:/data
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-  php71:
-    build:
-      context: build/dist/php
-      args:
-        - FROM_TAG=php71-fpm
-    volumes:
-      - dockerdev-workspace-volume:/data
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-  php72:
-    build:
-      context: build/dist/php
-      args:
-        - FROM_TAG=php72-fpm
-    environment:
-      - "BLACKFIRE_AGENT_SOCKET=unix:///dev/null"
-    volumes:
-      - dockerdev-workspace-volume:/data
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-  php73:
-    build:
-      context: build/dist/php
-      args:
-        - FROM_TAG=php73-fpm
-    environment:
-      - "BLACKFIRE_AGENT_SOCKET=unix:///dev/null"
-    volumes:
-      - dockerdev-workspace-volume:/data
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-  php74:
-    build:
-      context: build/dist/php
-      args:
-        - FROM_TAG=php74-fpm
-    environment:
-      - "BLACKFIRE_AGENT_SOCKET=unix:///dev/null"
-    volumes:
-      - dockerdev-workspace-volume:/data
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-  php80:
-    build:
-      context: build/dist/php
-      args:
-        - FROM_TAG=php80-fpm
-    environment:
-      - "BLACKFIRE_AGENT_SOCKET=unix:///dev/null"
-    volumes:
-      - dockerdev-workspace-volume:/data
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
   php81:
     build:
       context: build/dist/php
@@ -126,6 +55,8 @@ services:
 
   redis:
     image: redis:alpine
+    ports:
+      - 6379:6379
 
   web:
     build:

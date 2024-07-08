@@ -38,7 +38,7 @@ git clone -b development-docker-compose-2 https://github.com/JeroenBoersma/docke
 cd development
 bin/dev setup
 # press enter a few times and read instructions
-# default php81
+# default php82
 # setup your needs (elasticsearch/rabbitmq/etcetera)
 # you can always run this again
 

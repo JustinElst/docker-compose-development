@@ -1,5 +1,5 @@
 ARG FROM_IMAGE=srcoder/development-php
-ARG FROM_TAG=php71-fpm
+ARG FROM_TAG=php82-fpm
 
 FROM ${FROM_IMAGE}:${FROM_TAG}
 LABEL maintainer="Jeroen Boersma <jeroen@srcode.nl>"

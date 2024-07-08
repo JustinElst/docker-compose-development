@@ -4,18 +4,6 @@ services:
       - ./conf/blackfire
     build: build/dist/blackfire
 
-  php72:
-    environment:
-      - "BLACKFIRE_AGENT_SOCKET=tcp://blackfire:8307"
-  php73:
-    environment:
-      - "BLACKFIRE_AGENT_SOCKET=tcp://blackfire:8307"
-  php74:
-    environment:
-      - "BLACKFIRE_AGENT_SOCKET=tcp://blackfire:8307"
-  php80:
-    environment:
-      - "BLACKFIRE_AGENT_SOCKET=tcp://blackfire:8307"
   php81:
     environment:
       - "BLACKFIRE_AGENT_SOCKET=tcp://blackfire:8307"
