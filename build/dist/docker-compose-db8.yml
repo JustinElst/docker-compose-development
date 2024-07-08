@@ -8,3 +8,5 @@ services:
       - dockerdev-mysql8-volume:/var/lib/mysql:rw
     environment:
       - MYSQL_ROOT_PASSWORD
+    ports:
+      - "127.0.0.1:3308:3306"
