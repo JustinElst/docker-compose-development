@@ -1,0 +1,10 @@
+server {
+    listen 80;
+    server_name *.wordpress[DOMAINSUFFIX];
+    server_name *.wordpress.internal;
+    server_name *.wordpress.docker;
+
+    include "content/base";
+    include "content/default";
+}
+
