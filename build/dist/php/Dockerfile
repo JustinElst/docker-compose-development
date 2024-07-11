@@ -4,6 +4,12 @@ ARG FROM_TAG=php82-fpm
 FROM ${FROM_IMAGE}:${FROM_TAG}
 LABEL maintainer="Jeroen Boersma <jeroen@srcode.nl>"
 
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN php wp-cli.phar --info
+RUN chmod +x wp-cli.phar
+RUN mv wp-cli.phar /usr/local/bin/wp
+RUN wp --info
+
 ARG GID=1000
 ARG UID=1000
 
