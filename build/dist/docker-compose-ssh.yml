@@ -1,4 +1,9 @@
 services:
+  php74:
+    environment:
+      SSH_AUTH_SOCK: "/ssh-socket"
+    volumes:
+      - ${SSH_AUTH_SOCK}:/ssh-socket:ro
   php81:
     environment:
       SSH_AUTH_SOCK: "/ssh-socket"

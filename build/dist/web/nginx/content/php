@@ -1,5 +1,9 @@
 set $php '';
 
+if ( -f $dev_base_root/.php74 ) {
+  set $php '74';
+}
+
 if ( -f $dev_base_root/.php81 ) {
   set $php '81';
 }
@@ -10,6 +14,9 @@ if ( -f $dev_base_root/.php83 ) {
   set $php '83';
 }
 
+if ( -f $dev_customer_root/.php74 ) {
+  set $php '74';
+}
 if ( -f $dev_customer_root/.php81 ) {
   set $php '81';
 }
@@ -20,6 +27,9 @@ if ( -f $dev_customer_root/.php83 ) {
   set $php '83';
 }
 
+if ( -f $dev_root/.php74 ) {
+  set $php '74';
+}
 if ( -f $dev_root/.php81 ) {
   set $php '81';
 }

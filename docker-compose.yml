@@ -10,6 +10,7 @@ services:
     image: percona
     volumes:
       - ./conf.d/mysql/my.cnf:/etc/my.cnf.d/development.cnf:ro
+      - ./oldambt1_wp1.sql.gz:/oldambt1_wp1.sql.gz
       - dockerdev-mysql-volume:/var/lib/mysql:rw
     environment:
       - MYSQL_ROOT_PASSWORD
@@ -19,6 +20,17 @@ services:
   mailcatch:
     image: mailhog/mailhog
 
+  php74:
+    build:
+      context: build/dist/php
+      args:
+        - FROM_TAG=php74-fpm
+    environment:
+      - "BLACKFIRE_AGENT_SOCKET=unix:///dev/null"
+    volumes:
+      - dockerdev-workspace-volume:/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   php81:
     build:
       context: build/dist/php

@@ -4,6 +4,8 @@ services:
       context: build/dist/elasticsearch
       args:
         - FROM_TAG=7.4.2
+    ports:
+      - 127.0.0.1:9200:9200
     environment:
         - "discovery.type=single-node"
 

@@ -5,5 +5,7 @@ volumes:
 services:
   ngrok:
     image: ngrok/ngrok
+    ports:
+      - 4040:4040
     volumes:
-      - dockerdev-ngrok-volume:/var/lib/ngrok
+      - dockerdev-ngrok-volume:/home/ngrok/.config/ngrok/

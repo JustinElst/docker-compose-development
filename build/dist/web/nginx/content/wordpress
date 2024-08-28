@@ -1,0 +1,30 @@
+
+gzip_types text/css application/x-javascript image/svg+xml;
+
+include "content/security";
+
+index index.php;
+
+location / {
+  try_files $uri $uri/ /index.php$is_args$args;
+}
+location ~ \.php$ {
+  try_files .~srcfile @php;
+  allow all;
+}
+location ~ /\.ht {
+   deny all;
+}
+location = /favicon.ico {
+   log_not_found off;
+   access_log off;
+}
+location = /robots.txt {
+   allow all;
+   log_not_found off;
+   access_log off;
+}
+location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+   expires max;
+   log_not_found off;
+}

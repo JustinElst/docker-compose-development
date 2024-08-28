@@ -15,7 +15,7 @@ dc nodeps;
 dc opt '--entrypoint=/bin/ngrok';
 dc service ngrok;
 
-dc cmd 'http --host-header='${DEV_HOSTNAME}' '${WEB_IP}':80';
+dc cmd 'http --domain=airpress.ngrok.dev --host-header='${DEV_HOSTNAME}' '${WEB_IP}':80';
 
 dc run "$@";
 return $?;

@@ -9,6 +9,7 @@ RUN php wp-cli.phar --info
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 RUN wp --info
+RUN magerun2 self-update
 
 ARG GID=1000
 ARG UID=1000
