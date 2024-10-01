@@ -7,4 +7,3 @@ server {
     include "content/base";
     include "content/magento2";
 }
-

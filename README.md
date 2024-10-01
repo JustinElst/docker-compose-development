@@ -61,7 +61,7 @@ mkdir workspace
 dev volume workspace workspace
 
 cdw
-dev php-change php81 # if that's the default
+dev php-change php82 # if that's the default
 
 dev up
 ```
