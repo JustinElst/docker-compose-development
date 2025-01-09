@@ -12,6 +12,8 @@ RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 RUN wp --info
 RUN magerun2 self-update
+RUN mkdir -p /usr/local/share/n98-magerun2/modules
+RUN cd /usr/local/share/n98-magerun2/modules && git clone https://github.com/elgentos/magerun2-addons.git elgentos-addons
 
 ARG GID=1000
 ARG UID=1000

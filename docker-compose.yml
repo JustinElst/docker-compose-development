@@ -41,6 +41,17 @@ services:
       - dockerdev-workspace-volume:/data
     extra_hosts:
       - "host.docker.internal:host-gateway"
+  php84:
+    build:
+      context: build/dist/php
+      args:
+        - FROM_TAG=php84-fpm
+    environment:
+      - "BLACKFIRE_AGENT_SOCKET=unix:///dev/null"
+    volumes:
+      - dockerdev-workspace-volume:/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   redis:
     image: redis:alpine
