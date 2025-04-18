@@ -1,6 +1,7 @@
 # Ignore this
 /workspace
 /opensearch
+/flutter
 /mysql
 /custom
 /build/custom
