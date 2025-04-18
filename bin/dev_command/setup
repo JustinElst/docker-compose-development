@@ -16,6 +16,13 @@ setup() {
         return $?;
     }
 
+    opensearch() {
+        if [ -z "`${DEV_SUDO} docker volume ls -q -f 'name=dockerdev-opensearch-volume'`" ]; then
+            echo 'Create a persistant opensearch volume';
+            ${DEV_SUDO} docker volume create dockerdev-opensearch-volume;
+        fi
+    }
+
     workspace() {
         if [ -z "`${DEV_SUDO} docker volume ls -q -f 'name=dockerdev-workspace-volume'`" ]; then
             echo 'Create workspace volume in location '${DEV_WORKSPACE_PATH};
@@ -121,10 +128,10 @@ setup() {
     workspace;
     ngrok;
     mysql;
+    opensearch;
 
     feature RabbitMQ rabbitmq;
     feature "Percona 8" mysql8;
-    feature "ElasticSearch 6.5.4" elasticsearch;
     feature "ElasticSearch 7.9.1" elasticsearch7;
     feature "ElasticSearch HQ" elasticsearchhq;
     feature "ElasticSearch VUE" elasticvue;

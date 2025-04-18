@@ -1,6 +1,8 @@
 volumes:
   dockerdev-mysql-volume:
     external: true
+  dockerdev-opensearch-volume:
+    external: true
   dockerdev-workspace-volume:
     external: true
 

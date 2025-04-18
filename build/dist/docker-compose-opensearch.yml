@@ -1,7 +1,22 @@
 services:
   opensearch:
-    image: opensearchproject/opensearch
+    build:
+      context: build/dist/opensearch
+      args:
+        - FROM_TAG=2.12.0
+    ports:
+      - 9200:9200
+      - 9600:9600
+    ulimits:
+      memlock:
+        soft: -1 # Set memlock to unlimited (no soft or hard limit)
+        hard: -1
+      nofile:
+        soft: 65536 # Maximum number of open files for the opensearch user - set to at least 65536
+        hard: 65536
     environment:
       - "discovery.type=single-node"
-      - "plugins.security.disabled=true"
-      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=.zZ.ikn4~4icXobVFy-8
+      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
+      - bootstrap.memory_lock=true
+    volumes:
+      - dockerdev-opensearch-volume:/usr/share/opensearch/data

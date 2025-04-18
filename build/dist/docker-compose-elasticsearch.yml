@@ -1,9 +1,0 @@
-services:
-  elasticsearch6:
-    build:
-      context: build/dist/elasticsearch
-      args:
-        - FROM_TAG=6.5.4
-    environment:
-      - "discovery.type=single-node"
-
