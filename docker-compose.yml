@@ -1,4 +1,6 @@
 volumes:
+  dockerdev-ngrok-volume:
+    external: true
   dockerdev-mysql-volume:
     external: true
   dockerdev-opensearch-volume:
@@ -10,6 +12,10 @@ services:
   db:
     container_name: dockerdev-db
     image: percona
+    ulimits:
+      nofile:
+        soft: 1048576
+        hard: 1048576
     volumes:
       - ./conf.d/mysql/my.cnf:/etc/my.cnf.d/development.cnf:ro
       - dockerdev-mysql-volume:/var/lib/mysql:rw
@@ -58,7 +64,7 @@ services:
   redis:
     image: redis:alpine
     ports:
-      - 6379:6379
+      - 6389:6379
 
   web:
     build:
@@ -73,5 +79,5 @@ services:
     build:
       context: build/dist/ssl
     ports:
-        - "80:80"
-        - "443:443"
+        - 80:80
+        - 443:443
