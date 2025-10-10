@@ -1,0 +1,10 @@
+server {
+    listen 80;
+    server_name *.laravel[DOMAINSUFFIX];
+    server_name *.laravel.internal;
+    server_name *.laravel.docker;
+
+    include "content/base";
+    include "content/laravel";
+}
+

@@ -5,15 +5,19 @@ FROM ${FROM_IMAGE}:${FROM_TAG}
 LABEL maintainer="Jeroen Boersma <jeroen@srcode.nl>"
 
 COPY conf/php.ini /usr/local/etc/php/
-
-RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-RUN php wp-cli.phar --info
-RUN chmod +x wp-cli.phar
-RUN mv wp-cli.phar /usr/local/bin/wp
-RUN wp --info
+RUN docker-php-ext-install ftp
+#RUN #pecl install xdebug && docker-php-ext-enable xdebug
+#RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+#RUN php wp-cli.phar --info
+#RUN chmod +x wp-cli.phar
+#RUN mv wp-cli.phar /usr/local/bin/wp
+#RUN wp --info
 RUN magerun2 self-update
-RUN mkdir -p /usr/local/share/n98-magerun2/modules
-RUN cd /usr/local/share/n98-magerun2/modules && git clone https://github.com/elgentos/magerun2-addons.git elgentos-addons
+#RUN mkdir -p /usr/local/share/n98-magerun2/modules
+#RUN cd /usr/local/share/n98-magerun2/modules && git clone https://github.com/elgentos/magerun2-addons.git elgentos-addons
+RUN apt-get update
+RUN apt-get install -y ca-certificates
+RUN update-ca-certificates
 
 ARG GID=1000
 ARG UID=1000
