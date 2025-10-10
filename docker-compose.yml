@@ -3,6 +3,8 @@ volumes:
     external: true
   dockerdev-mysql-volume:
     external: true
+  dockerdev-mysql8-volume:
+    external: true
   dockerdev-opensearch-volume:
     external: true
   dockerdev-workspace-volume:
@@ -23,6 +25,17 @@ services:
       - MYSQL_ROOT_PASSWORD
     ports:
       - 127.0.0.1:3306:3306
+
+  db8:
+    container_name: dockerdev-db8
+    image: percona:8
+    volumes:
+      - ./conf.d/mysql8/my.cnf:/etc/my.cnf.d/development.cnf:ro
+      - dockerdev-mysql8-volume:/var/lib/mysql:rw
+    environment:
+      - MYSQL_ROOT_PASSWORD
+    ports:
+      - 127.0.0.1:3308:3306
 
   mailcatch:
     image: mailhog/mailhog

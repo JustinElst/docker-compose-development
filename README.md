@@ -79,7 +79,12 @@ dev volume rm mysql
 mkdir mysql
 dev volume mysql mysql
 
+dev volume rm mysql8
+mkdir mysql8
+dev volume mysql8 mysql8
+
 dev setup # this will add your user and correct settings (press enter to everything)
+dev setup-mysql db8
 ```
 
 

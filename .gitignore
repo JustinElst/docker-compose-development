@@ -3,6 +3,7 @@
 /opensearch
 /flutter
 /mysql
+/mysql8
 /custom
 /build/custom
 /docker-custom.yml
