@@ -28,6 +28,8 @@ mysql-setup() {
   echo "\
 create user '${user}';\
 grant all on ${user}.* to '${user}';\
+grant SESSION_VARIABLES_ADMIN on *.* to '${user}';\
+grant SYSTEM_VARIABLES_ADMIN on *.* to '${user}';\
 update mysql.db set db = '${user}\_%' where user = '${user}';\
 flush privileges;" | ${DEV_PATH}/${DEV_SELF} myroot -h "${host}" 2>/dev/null;
 
