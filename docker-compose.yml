@@ -26,6 +26,11 @@ services:
     ports:
       - 127.0.0.1:3305:3306
 
+  gotenberg:
+    image: gotenberg/gotenberg:8
+    ports:
+      - 3000:3000
+
   mailcatch:
     image: mailhog/mailhog
 
